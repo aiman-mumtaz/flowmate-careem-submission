@@ -145,10 +145,12 @@ html, body, [class*="css"] { font-family: Inter, sans-serif; }
 [data-baseweb="popover"] li { color:#171b18 !important; }
 [data-baseweb="popover"] li:hover { background:#eaf6ef !important; }
 [data-testid="stSelectbox"]:focus-within [data-baseweb="select"] > div { border-color:#00b37d !important; box-shadow:0 0 0 1px #00b37d !important; }
-[data-testid="stDownloadButton"] button { background:#00b37d !important; border:0 !important; border-radius:11px !important; color:#10231b !important; -webkit-text-fill-color:#10231b !important; font-weight:700 !important; }
-[data-testid="stDownloadButton"] button * { color:#10231b !important; -webkit-text-fill-color:#10231b !important; }
-[data-testid="stDownloadButton"] button:hover { background:#009b6b !important; color:#fff !important; -webkit-text-fill-color:#fff !important; }
-[data-testid="stDownloadButton"] button:hover * { color:#fff !important; -webkit-text-fill-color:#fff !important; }
+[data-testid="stDownloadButton"] button { background:transparent !important; border:1px solid #cbd3cc !important; border-radius:11px !important; color:#171b18 !important; -webkit-text-fill-color:#171b18 !important; font-weight:600 !important; box-shadow:none !important; }
+[data-testid="stDownloadButton"] button * { color:#171b18 !important; -webkit-text-fill-color:#171b18 !important; }
+[data-testid="stDownloadButton"] button:hover { background:#f1f3f1 !important; border-color:#afb8b1 !important; color:#171b18 !important; -webkit-text-fill-color:#171b18 !important; }
+[data-testid="stDownloadButton"] button:hover * { color:#171b18 !important; -webkit-text-fill-color:#171b18 !important; }
+button[kind="secondary"] { background:transparent !important; border:1px solid #cbd3cc !important; color:#171b18 !important; -webkit-text-fill-color:#171b18 !important; font-weight:600 !important; }
+button[kind="secondary"]:hover { background:#f1f3f1 !important; border-color:#afb8b1 !important; color:#171b18 !important; -webkit-text-fill-color:#171b18 !important; }
 .note-preview { margin-top:8px; padding:14px 16px; border:1px solid #d4eadc; border-radius:11px; background:#f2f8f4; color:#171b18; }
 .note-preview-label { color:#526d20; font-size:10px; font-weight:800; text-transform:uppercase; }
 .note-preview p { margin:6px 0 0; color:#38443c; font-size:13px; line-height:1.55; }
@@ -258,22 +260,21 @@ st.markdown(
     f'<div class="note-preview"><div class="note-preview-label">Selected synthetic note · {selected_record_id}</div><p>{notes}</p></div>',
     unsafe_allow_html=True,
 )
-download_col, note_col = st.columns([1, 4])
+action_col, download_col = st.columns([2.2, 1.2])
+with action_col:
+    generate = st.button("✦ Explore directions", type="primary", use_container_width=True)
 with download_col:
     st.download_button(
-        "Download 200 records",
+        "Download Dummy Dataset",
         data=pd.DataFrame(DUMMY_DATASET).to_csv(index=False).encode("utf-8"),
         file_name="flowmate_careem_dummy_dataset.csv",
         mime="text/csv",
+        type="secondary",
+        use_container_width=True,
     )
-with note_col:
-    st.caption("All 200 records are fictional. Mix any feature, context, and note to explore different combinations.")
 
-b1, b2 = st.columns([1, 5])
-with b1:
-    generate = st.button("✦  Explore directions", type="primary", use_container_width=True)
-with b2:
-    st.caption("Try replacing the example with your own feature idea, interview notes or support feedback.")
+st.caption("All 200 records are fictional. Mix any feature, context, and note to explore different combinations.")
+st.caption("Try replacing the example with your own feature idea, interview notes or support feedback.")
 
 if "result" not in st.session_state:
     st.session_state.result = DEMO
