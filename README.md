@@ -37,9 +37,13 @@ The output is structured around a simple loop:
 
 ## Submission materials
 
-- Prototype document and run instructions: this README and `app.py`.
-- Public dataset: [Olist Brazilian E-Commerce dataset](https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce).
-- The interactive prototype can be shared publicly by deploying this project to Streamlit Community Cloud.
+Prototype document: README.md and app.py
+Working applciation link:
+Dataset: Dummy dataset created with the help of chatgpt. Allows user to select data from UI
+
+100-word summary:
+FlowMate helps product designers turn rough notes into actionable UX concepts. Its synthetic dataset has 200 scenarios across Careem features, contexts, and usability frictions. Users choose a feature, context, and note from dropdowns; the prototype identifies needs and goals, suggests a flow, brainstorms three layout directions, drafts interface copy, and surfaces usability risks with mitigations. Groq's GPT-OSS model generates live results. The human-in-the-loop approach presents alternatives and trade-offs for critique, not a single prescribed answer. All scenarios are fictional; validate outputs with research and product constraints. An Olist public dataset link is included as context, not loaded by the app.
+
 
 ## Privacy
 

@@ -137,12 +137,18 @@ html, body, [class*="css"] { font-family: Inter, sans-serif; }
 [data-testid="stCaptionContainer"], [data-testid="stWidgetLabel"] { color:#505952 !important; }
 [data-testid="stMetricValue"], [data-testid="stMetricLabel"] { color:#171b18 !important; }
 [data-testid="stRadio"] label, [data-testid="stRadio"] label * { color:#171b18 !important; }
-[data-testid="stSelectbox"] [data-baseweb="select"] > div { min-height:46px; background:#fff !important; border:1px solid #cbd3cc !important; border-radius:11px !important; }
+[data-testid="stSelectbox"] [data-baseweb="select"] > div,
+[data-testid="stSelectbox"] [data-baseweb="select"] > div > div { min-height:46px; background:#fff !important; border:1px solid #cbd3cc !important; border-radius:11px !important; }
 [data-testid="stSelectbox"] [data-baseweb="select"] * { color:#171b18 !important; }
+[data-testid="stSelectbox"] [role="combobox"] { background:#fff !important; color:#171b18 !important; -webkit-text-fill-color:#171b18 !important; }
 [data-baseweb="popover"] ul { background:#fff !important; }
 [data-baseweb="popover"] li { color:#171b18 !important; }
 [data-baseweb="popover"] li:hover { background:#eaf6ef !important; }
 [data-testid="stSelectbox"]:focus-within [data-baseweb="select"] > div { border-color:#00b37d !important; box-shadow:0 0 0 1px #00b37d !important; }
+[data-testid="stDownloadButton"] button { background:#00b37d !important; border:0 !important; border-radius:11px !important; color:#10231b !important; -webkit-text-fill-color:#10231b !important; font-weight:700 !important; }
+[data-testid="stDownloadButton"] button * { color:#10231b !important; -webkit-text-fill-color:#10231b !important; }
+[data-testid="stDownloadButton"] button:hover { background:#009b6b !important; color:#fff !important; -webkit-text-fill-color:#fff !important; }
+[data-testid="stDownloadButton"] button:hover * { color:#fff !important; -webkit-text-fill-color:#fff !important; }
 .note-preview { margin-top:8px; padding:14px 16px; border:1px solid #d4eadc; border-radius:11px; background:#f2f8f4; color:#171b18; }
 .note-preview-label { color:#526d20; font-size:10px; font-weight:800; text-transform:uppercase; }
 .note-preview p { margin:6px 0 0; color:#38443c; font-size:13px; line-height:1.55; }
@@ -231,7 +237,7 @@ st.markdown('''<div class="hero">
 
 # Input workspace
 st.markdown('<div class="section"><div class="eyebrow">01 · Frame the problem</div><h2>Give FlowMate the messy version.</h2><div class="section-sub">Rough notes are enough. The AI will structure the problem before suggesting interface directions.</div></div>', unsafe_allow_html=True)
-st.caption("Reference dataset: [Olist Brazilian E-Commerce](https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce). This prototype uses its own synthetic Careem scenario records; no file upload is needed.")
+# st.caption("Reference dataset: [Olist Brazilian E-Commerce](https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce). This prototype uses its own synthetic Careem scenario records; no file upload is needed.")
 
 c1, c2 = st.columns([1, 1])
 with c1:
